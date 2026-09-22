@@ -10,14 +10,21 @@ library(tidyverse)
 ```
 ```{r}
 litters_df =
-  read_csv(file = "data_import_examples/FAS_litters.csv", skip = 0)
+  read_csv(file = "data_import_examples/FAS_litters.csv", 
+           na = c("", "NA", ".")
+           )
 
 litters_df = janitor::clean_names(litters_df)
 litters_df
 ```
+Import second dataset. 
+
 ```{r}
 pups_df = 
-  read_csv(file = "data_import_examples/FAS_pups.csv", skip = 3)
+  read_csv(file = "data_import_examples/FAS_pups.csv", 
+           na = c("", "NA", "."),
+           skip = 3
+           )
 pups_df
 
 pups_df = janitor::clean_names(pups_df)
@@ -42,4 +49,5 @@ tail(pups_df, 5)
 skimr::skim(pups_df)
 ```
 
+## OH excel...
 
